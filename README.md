@@ -1,4 +1,4 @@
-# GI-Music-Loop-Points-Editor
+# GI-Loop-Points-Editor
 This is a small python script that should be able to change the loop-points of genshin songs (WIP).
 Usage:
 Start the program and insert the following arguments
