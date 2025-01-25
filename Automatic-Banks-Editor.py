@@ -41,8 +41,6 @@ def write_double_at_offsets_total_length(file_path, offsets, double_value):
                 target_position = offset + 32
                 file.seek(target_position)
                 file.write(struct.pack('<d', double_value))
-                file.seek(offset + 31)
-                file.write(bytes([0x80]))
     except FileNotFoundError:
         print(f"Error: File '{file_path}' not found.")
     except Exception as e:
@@ -76,7 +74,7 @@ def write_doubles_after_hex_string(file_path, offsets, double_value):
                             file.seek(position_before_string)
                             file.write(struct.pack('<d', double_value))
                             
-                            print(f"Overwritten values ​​with offset: {position_after_string} and {position_before_string}.")
+                            print(f"Overwritten values with offset: {position_after_string} and {position_before_string}.")
                             break
                         
                         file.seek(file.tell() - len(potential_match) + 1)
@@ -119,11 +117,11 @@ if __name__ == "__main__":
             else:
                 print("Song ID not found.")
         if patched_files:
-            print("Patched Files :")
+            print("\nPatched Files :")
             for patched_file in patched_files:
                 print(patched_file)
         else:
-            print("No files have been patched.")
+            print("\nNo files have been patched.")
         
     else:
         file_path = input("Enter the file path: ").strip()

@@ -41,8 +41,6 @@ def write_double_at_offsets_total_length(file_path, offsets, double_value):
                 target_position = offset + 32
                 file.seek(target_position)
                 file.write(struct.pack('<d', double_value))
-                file.seek(offset + 31)
-                file.write(bytes([0x80]))
     except FileNotFoundError:
         print(f"Error: File '{file_path}' not found.")
     except Exception as e:
